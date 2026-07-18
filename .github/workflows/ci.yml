@@ -2,21 +2,21 @@ name:CI
 
 on:
   push:
-    brnaches: [main]
+    branches: [main]
   pull_request:
     branches: [main]
 
-jobs
+jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-    uses: actions/ checkout@v4
+    uses: actions/checkout@v4
 
     - name: Set up Python
     uses: actions/ setup-python@v5
     with:
-      python-versions: 3.12
+      python-version: 3.12
 
     - name: Install dependencies
       run: pip install -r requirements.txt
@@ -31,5 +31,5 @@ steps:
     uses: actions/checkout@v4
 
   - name: Build Docker image
-    rrun: docker build -t tinylink:latest .
+    run: docker build -t tinylink:latest .
 
